@@ -269,7 +269,6 @@ export default function BatteryDisplay() {
   );
 }
 
-// Simple SVG Chart for battery history
 function BatteryHistoryChart({ history }) {
   if (!history?.length) return <div>No battery history yet.</div>;
   const width = 300,
