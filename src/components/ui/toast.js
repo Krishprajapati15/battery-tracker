@@ -1,25 +1,22 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 let toastSetter = null;
 
 export function ToastContainer() {
   const [toast, setToast] = useState(null);
   toastSetter = setToast;
-
   if (!toast) return null;
-
   return (
-    <div className="fixed top-4 right-4 z-50">
-      <div className="bg-black text-white px-4 py-2 rounded shadow-lg animate-fadein">
+    <div className="fixed top-8 right-8 z-[100]">
+      <div className="bg-black text-white px-6 py-3 rounded-full shadow-md text-lg font-medium dark:bg-white dark:text-black">
         {toast}
       </div>
     </div>
   );
 }
-
-export function showToast(message, duration = 2500) {
+export function showToast(message, duration = 2200) {
   if (toastSetter) {
     toastSetter(message);
     setTimeout(() => toastSetter(null), duration);
